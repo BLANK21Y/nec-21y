@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Student Data</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="img/logo.jpg" alt="Logo" style="max-height: 60px; display: block; margin: 0 auto 10px;" />
+    <h1>NEC Student Info Portal</h1>
+
+    <div class="filters">
+      <select id="yearSelect">
+        <option value="" disabled selected>Select Year</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+      </select>
+
+      <select id="branchSelect">
+        <option value="" disabled selected>Select Branch</option>
+        <option value="ai">AI</option>
+        <option value="it">IT</option>
+      </select>
+
+      <button onclick="redirectToDetails()">Get Details</button>
+    </div>
+
+    <footer>Made by Tech In My Style</footer>
+  </div>
+
+  <script>
+    function redirectToDetails() {
+      const year = document.getElementById("yearSelect").value;
+      const branch = document.getElementById("branchSelect").value;
+
+      if (!year || !branch) {
+        alert("Please select both year and branch.");
+        return;
+      }
+
+      window.location.href = `details.html?year=${year}&branch=${branch}`;
+    }
+  </script>
+</body>
+</html>

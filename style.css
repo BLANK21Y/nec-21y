@@ -1,0 +1,204 @@
+:root {
+  --bg-light: #f2f4f8;
+  --bg-dark: #121212;
+  --text-light: #2c3e50;
+  --text-dark: #e0e0e0;
+  --card-light: #ffffff;
+  --card-dark: #1e1e1e;
+  --accent: #3498db;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --radius: 10px;
+  --transition: all 0.3s ease-in-out;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  margin: 0;
+  padding: 0;
+  transition: var(--transition);
+}
+
+body.dark-theme {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.portal-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-height: 70px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+select, input[type="text"], button {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  outline: none;
+  transition: var(--transition);
+}
+
+button {
+  background-color: var(--accent);
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+#studentList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.student-card {
+  background: var(--card-light);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px var(--shadow);
+  padding: 15px;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+body.dark-theme .student-card {
+  background: var(--card-dark);
+  color: var(--text-dark);
+}
+
+.student-card:hover {
+  transform: translateY(-5px);
+}
+
+.student-card img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.student-card:hover img {
+  transform: scale(1.05);
+}
+
+.student-info {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.student-info h3 {
+  margin: 6px 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+.student-info p {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.inline-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.inline-btns a {
+  background-color: var(--accent);
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.inline-btns a:hover {
+  background-color: #1d6fa5;
+}
+
+a.email-link {
+  color: var(--accent);
+  word-break: break-all;
+  font-size: 13px;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 1000;
+  font-size: 16px;
+}
+
+footer {
+  margin-top: auto;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  background: transparent; /* or add light/dark background if needed */
+}
+body.dark-theme select,
+body.dark-theme input,
+body.dark-theme button {
+  background-color: #1e1e1e;
+  color: white;
+  border-color: #444;
+}
+
+@media (max-width: 600px) {
+  #studentList {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}
